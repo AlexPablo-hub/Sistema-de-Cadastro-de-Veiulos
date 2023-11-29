@@ -12,6 +12,39 @@ Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS, JavaScrip
 Antes de rodar a API, certifique-se de ter o Node.js e o npm instalados em seu sistema.
 Você pode baixá-los em https://nodejs.org/.
 
-Instale as dependências: 
-```bash 
+# Instalação de Dependências
+
+Para instalar as dependências do projeto, utilize o seguinte comando:
+
+```bash
 npm install
+
+# Banco de Dados de Veículos
+Este projeto utiliza um banco de dados chamado `veiculos` com duas tabelas principais: `usuarios` e `veiculos` não relacionadas entre si.
+
+1 Tabela `usuarios`
+
+- `ID` (chave primária, autoincremento)
+- `NomeUsuario` (varchar, não nulo)
+- `senha_criptografada` (varchar)
+
+2 Tabela `veiculos`
+
+- `id` (chave primária, autoincremento)
+- `empresa` (varchar)
+- `modelo` (varchar)
+- `ano` (inteiro)
+- `motor` (varchar)
+- `cor` (varchar)
+- `categoria` (varchar)
+  
+# Configuração do Banco de Dados
+Certifique-se de ter um servidor MySQL em execução e crie um banco de dados para a aplicação, Atualize as configurações de conexão no arquivo mysql/conexao.js conforme
+necessário.
+
+const connection = mysql.createConnection({
+  host: 'seu-host',
+  user: 'seu-usuario',
+  password: 'sua-senha',
+  database: 'seu-banco-de-dados'
+});
