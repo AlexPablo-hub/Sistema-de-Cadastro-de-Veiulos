@@ -37,9 +37,9 @@ const connection = mysql.createConnection({
 # Rodando a API
 Existem duas maneiras de iniciar a API: modo de produção e modo de desenvolvimento.
 
-- Modo de Produção: Execute o seguinte comando, **'npm start'**
+- Modo de Produção: Execute o seguinte comando **'npm start'**
 
-- Modo desenvolvimento: Execute o seguinte comando, **'npm run dev'**
+- Modo desenvolvimento: Execute o seguinte comando **'npm run dev'**
   
 Modo de Desenvolvimento é recomendável usar o Nodemon para reiniciar automaticamente
 o servidor sempre que houver alterações no código.
