@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleLogin.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>login</title>
+</head>
+
+<body>
+    <!-- modal de erro de login -->
+    <div class="modal fade" id="erroLoginModal" tabindex="-1" role="dialog" aria-labelledby="erroLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="erroLoginModalLabel">Erro de Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Credenciais inválidas. Verifique seu nome de usuário e senha e tente novamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- div dos input's de login -->
+    <div class="login">
+        <h2>Sistema de Cadastro de Veículos</h2>
+        <form action="/login" id="loginForm" method="post">
+            <div class="input-group">
+                <input type="text" name="username" id="username" required autocomplete="off" />
+                <label for="username"><i class="fas fa-user"></i> Nome de usuário</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" id="password" required autocomplete="off" />
+                <label for="password"><i class="fas fa-lock"></i> Senha</label>
+            </div>
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+    <!-- Inclusão do jQuery para a manipulação do DOM (Document Object Model), manipulação de eventos, animações, requisições AJAX e etc-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Inclua o Bootstrap JavaScript para exibição da janela modal de erro -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script com requisição ajax para confirmação dos dados de (username e password), e exibição da modal de erro -->
+    <script>
+        // Aguarde até que o documento esteja pronto
+        $(document).ready(function () {
+            // Selecione o formulário por ID
+            $("#loginForm").submit(function (e) {
+                // Evite que o formulário seja enviado normalmente
+                e.preventDefault();
+
+                // Obtenha os valores do formulário dinamicamente
+                const username = $("#username").val();
+                const password = $("#password").val();
+
+                // Faça a solicitação usando os valores do formulário
+                fetch(`/login`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, password }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (!data.success) {
+                            // Exiba a mensagem de erro recebida do servidor
+                            $("#mensagemErro").text(data.message);
+                            $("#erroLoginModal").modal("show");
+                        } else {
+                            // Redirecione para a página de destino.
+                            console.log("Login efetuado com sucesso.");
+                            window.location.href = data.redirect;
+                        }
+                    });
+            });
+            // Limpe os campos de usuário e senha ao fechar o modal
+            $("#erroLoginModal").on("hidden.bs.modal", function () {
+                $("#username").val("");
+                $("#password").val("");
+            });
+        });
+    </script>
+    <!-- Função para menter o input (username) sempre em caixa alta-->
+    <script>
+        const usernameInput = document.getElementById("username"); // Selecione o campo de entrada de nome de usuário
+        usernameInput.addEventListener("input", function () { // Adicione um ouvinte de eventos para o evento 'input'
+            this.value = this.value.toUpperCase(); // Atualize o valor do campo de entrada para maiúsculas
+        });
+    </script>
+</body>
+
+</html>
