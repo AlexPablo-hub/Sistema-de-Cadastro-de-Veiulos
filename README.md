@@ -10,41 +10,61 @@ Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS, JavaScrip
 
 # Instalações
 Antes de rodar a API, certifique-se de ter o Node.js e o npm instalados em seu sistema.
-Você pode baixá-los em https://nodejs.org/.
 
-# Instalação de Dependências
+Você pode baixá-los em https://nodejs.org/
 
 Para instalar as dependências do projeto, utilize o seguinte comando:
 
-```bash
-npm install
-
-# Banco de Dados de Veículos
+   ```bash
+   npm install
+   ```
+# Banco de Dados
 Este projeto utiliza um banco de dados chamado `veiculos` com duas tabelas principais: `usuarios` e `veiculos` não relacionadas entre si.
-
-1 Tabela `usuarios`
-
-- `ID` (chave primária, autoincremento)
-- `NomeUsuario` (varchar, não nulo)
-- `senha_criptografada` (varchar)
-
-2 Tabela `veiculos`
-
-- `id` (chave primária, autoincremento)
-- `empresa` (varchar)
-- `modelo` (varchar)
-- `ano` (inteiro)
-- `motor` (varchar)
-- `cor` (varchar)
-- `categoria` (varchar)
   
 # Configuração do Banco de Dados
-Certifique-se de ter um servidor MySQL em execução e crie um banco de dados para a aplicação, Atualize as configurações de conexão no arquivo mysql/conexao.js conforme
+Certifique-se de ter um servidor MySQL em execução e crie um banco de dados para a aplicação, Atualize as configurações de conexão no arquivo `mysql/conexao.js` conforme
 necessário.
 
+```javascript
 const connection = mysql.createConnection({
-  host: 'seu-host',
-  user: 'seu-usuario',
-  password: 'sua-senha',
-  database: 'seu-banco-de-dados'
+    host: 'seu-host',
+    user: 'seu-usuario',
+    password: 'sua-senha',
+    database: 'seu-banco-de-dados'
 });
+```
+
+# Rodando a API
+Existem duas maneiras de iniciar a API: modo de produção e modo de desenvolvimento.
+
+- Modo de Produção: Execute o seguinte comando, **'npm start'**
+
+- Modo desenvolvimento: Execute o seguinte comando, **'npm run dev'**
+  
+Modo de Desenvolvimento é recomendável usar o Nodemon para reiniciar automaticamente
+o servidor sempre que houver alterações no código.
+
+O servidor estará acessível em http://localhost:3000 por padrão depois de iniciado.
+
+
+# Dependências
+A API utiliza as seguintes dependências:
+
+- **Bootstrap**: Framework CSS para estilização.
+- **jQuery**: Biblioteca JavaScript para manipulação de eventos e requisições AJAX.
+- **bcrypt**: Método de criptografia de hash para senhas de acesso.
+- **ejs**: Mecanismo de template para JavaScript.
+- **Express**: Framework web para Node.js.
+- **express-session**: Middleware para gerenciamento de sessão no Express.
+- **jspdf**: Biblioteca JavaScript para geração de PDF no navegador.
+- **mysql**: Driver para Node.js para comunicação com bancos de dados MySQL.
+  
+Certifique-se de ter todas essas dependências instaladas e configuradas corretamente.
+
+# Contribuições
+Sinta-se à vontade para utilizar, modificar e contribuir para aprimorar este código, sinta-se à vontade para enviar um pull request. Fico feliz com sugestões e melhorias!
+
+# Autor
+Esta API foi desenvolvida por **Alex Pablo**.
+
+Curso de Sistemas de Informação - UNEMAT.
