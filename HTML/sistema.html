@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styleSistema.css" />
+  <!-- Inclua o Bootstrap CSS para exibição da janela modal -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Sistema Cadastro Veículos</title>
+</head>
+
+<body>
+  <!-- Janela Modal de Edição -->
+  <div class="modal fade" id="modalEdicao" tabindex="-1" role="dialog" aria-labelledby="modalEdicaoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEdicaoLabel">Editar Veículo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-container">
+            <form id="meuFormulario2" method="post">
+              <input type="text" name="empresa" id="empresa" placeholder="EMPRESA" />
+              <input type="text" name="modelo" id="modelo" placeholder="MODELO" />
+              <input type="text" name="ano" id="ano" placeholder="ANO" />
+              <input type="text" name="motor" id="motor" placeholder="MOTOR" />
+              <input type="text" name="cor" id="cor" placeholder="COR" />
+              <input type="text" name="categoria" id="categoria" placeholder="CATEGORIA" />
+              <input type="submit" value="ATUALIZAR" id="btn-salvar-edicao" style="cursor: pointer" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de confirmação de exclusão-->
+  <div class="modal fade" id="confirmacaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmacaoModalLabel">Confirmação</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">Deseja excluir o veículo?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-danger" id="btnConfirmarExclusao">
+            Sim
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de confirmação de cadastro-->
+  <div class="modal fade" id="modalDeConfirmacao" tabindex="-1" role="dialog" aria-labelledby="modalDeConfirmacaoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDeConfirmacaoLabel">Veículo Cadastrado com Sucesso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          O veículo foi cadastrado com sucesso.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de confirmação de erro-->
+  <div class="modal fade" id="modalDeConfirmacaodeerro" tabindex="-1" role="dialog"
+    aria-labelledby="modalDeConfirmacaoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDeConfirmacaoLabel">Erro ao cadastratar veiculo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">O veículo não foi cadastrado.</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cabeçalho -->
+  <header>
+    <div>
+      <h1>CRUD - Sistema Cadastro Veiculos</h1>
+    </div>
+  </header>
+  <!-- Barra de navegação -->
+  <nav>
+    <div class="form-container">
+      <form id="meuFormulario" method="post">
+        <input type="text" name="empresa" id="empresa" placeholder="EMPRESA" />
+        <input type="text" name="modelo" id="modelo" placeholder="MODELO" />
+        <input type="text" name="ano" id="ano" placeholder="ANO" />
+
+        <!-- Substitui o campo de texto para o tipo de motor por um menu suspenso -->
+        <label for="opcoes"></label>
+        <select id="opcoes" name="motor">
+          <option value="Combustão">Combustão</option>
+          <option value="Elétrico">Elétrico</option>
+        </select>
+
+        <input type="text" name="cor" id="cor" placeholder="COR" />
+        <input type="text" name="categoria" id="categoria" placeholder="CATEGORIA" />
+        <input type="submit" value="SALVAR" id="btn-salvar" style="cursor: pointer" />
+      </form>
+    </div>
+
+  </nav>
+  <!-- Conteúdo principal -->
+  <main class="main">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>EMPRESA</th>
+            <th>MODELO</th>
+            <th>ANO</th>
+            <th>MOTOR</th>
+            <th>COR</th>
+            <th>CATEGORIA</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-veiculos">
+          <!-- Aqui você pode adicionar as linhas de veículos dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+    <div class="relatorios">
+      <form action="/relatorio">
+        <input type="submit" value="RELATORIOS" id="btn-relatorio" class="btn-relatorio" />
+      </form>
+    </div>
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2023 Unemat.</p>
+  </footer>
+  <!-- Script para manipulação de dados obtidos pelo servidor -->
+  <script>
+    // Função para atualizar a tabela de veículos com os dados recebidos do servidor
+    const atualizarTabelaVeiculos = (veiculos) => {
+      const tabelaVeiculosBody = document.querySelector("#tabela-veiculos");
+      tabelaVeiculosBody.innerHTML = ""; // Limpe o conteúdo atual da tabela
+
+      veiculos.forEach((veiculo) => {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+                <td class="veiculo-cell">${veiculo.empresa}</td>
+                <td class="veiculo-cell">${veiculo.modelo}</td>
+                <td class="veiculo-cell">${veiculo.ano}</td>
+                <td class="veiculo-cell">${veiculo.motor}</td>
+                <td class="veiculo-cell">${veiculo.cor}</td>
+                <td class="veiculo-cell">${veiculo.categoria}</td>
+                <td >
+                  <input class="btn-editar" type="button" value="EDITAR" data-veiculo-id="${veiculo.id}" style="cursor: pointer;" />
+                  <input class="btn-excluir" type="button" value="DELETAR" data-veiculo-id="${veiculo.id}" style="cursor: pointer;" />
+                </td>
+            `;
+        tabelaVeiculosBody.appendChild(newRow);
+      });
+    };
+    // Função para carregar dados de veículos
+    const carregarDadosVeiculos = () => {
+      if (window.location.href.includes("/sistema")) {
+        // A página foi redirecionada para /sistema, então carregue os dados de veículos
+        fetch("/get-veiculos-data")
+          .then((response) => response.json())
+          .then((data) => {
+            // Verifique se o array de veículos não está vazio
+            if (Array.isArray(data.results) && data.results.length > 0) {
+              // Use os dados recebidos para atualizar a tabela do sistema
+              atualizarTabelaVeiculos(data.results);
+              console.log("Os dados foram recebidos com sucesso.");
+            } else {
+              console.log("Nenhum veículo encontrado.");
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar os dados:", error);
+          });
+      }
+    };
+
+    // Chame a função de carregar dados de veículos no carregamento da página
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Página sistema carregada.");
+      carregarDadosVeiculos();
+    });
+  </script>
+  <!-- Inclusão do jQuery para a manipulação do DOM (Document Object Model), manipulação de eventos, animações, requisições AJAX e etc-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Script para manipulação de dados para o input de salvar veiculos -->
+  <script>
+    $(document).ready(function () {
+      $("#btn-salvar").click(function (e) {
+        e.preventDefault();
+
+        // Atualiza o valor do campo "motor" com base na seleção do usuário
+        var opcoesSelect = document.getElementById("opcoes");
+        var motorInput = document.getElementById("motor");
+        motorInput.value = opcoesSelect.value;
+
+        const dadosDoFormulario = $("#meuFormulario").serialize();
+        console.log("Dados do formulário:", dadosDoFormulario);
+
+        // Envia uma solicitação POST para o servidor
+        $.post("/cadastrar-veiculo", dadosDoFormulario)
+          .done(function (response) {
+            // Lógica para atualizar dinamicamente a tabela com os dados do response
+            atualizarTabelaVeiculos(response.data); // Atualiza a tabela com os novos dados
+            console.log("Dados cadastrados com sucesso:", response);
+
+            // Exemplo: Limpar o formulário após o cadastro
+            $("#meuFormulario")[0].reset();
+
+            // Exibir modal de confirmação
+            $("#modalDeConfirmacao").modal("show");
+          })
+          .fail(function (error) {
+            // Manipulação de erros em caso de falha na solicitação
+            console.error("Erro ao cadastrar veículo:", error);
+            // Exemplo: Mostrar uma mensagem de erro ao usuário
+            $("#modalDeConfirmacaodeerro").modal("show");
+          });
+      });
+    });
+  </script>
+  <!-- Script para manipulação de dados para o input de exclusão de dados -->
+  <script>
+    $(document).on("click", "input.btn-excluir", function () {
+      const veiculoId = $(this).attr("data-veiculo-id");
+
+      // Abre o modal de confirmação
+      $("#confirmacaoModal").modal("show");
+
+      // Remove os eventos de clique anteriores
+      $("#btnConfirmarExclusao").off("click");
+
+      // Configura o evento de clique para o botão "Sim" do modal
+      $("#btnConfirmarExclusao").on("click", function () {
+        // Fecha o modal de confirmação
+        $("#confirmacaoModal").modal("hide");
+
+        console.log("Você DELETOU o veículo com ID:", veiculoId);
+        excluirVeiculo(veiculoId);
+      });
+    });
+
+    const excluirVeiculo = (veiculoId) => {
+      fetch(`/excluir/${veiculoId}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            console.error("\nErro ao excluir veículo:", data.error);
+          } else {
+            atualizarTabelaVeiculos(data.data);
+            console.log("\nVeículo excluído com sucesso:", data);
+          }
+        })
+        .catch((error) => {
+          console.error("\nErro ao excluir veículo:", error);
+        });
+    };
+  </script>
+  <!-- Inclua o Bootstrap JavaScript após o jQuery -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Script para manipulação de dados para o input de edição de dados -->
+  <script>
+    $(document).on("click", "input.btn-editar", function () {
+      const veiculoId = $(this).attr("data-veiculo-id");
+      console.log("Você está editando o veículo com ID:", veiculoId);
+
+      // Busque os dados do veículo correspondente no servidor
+      fetch(`/get-veiculo/${veiculoId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            console.error("Erro ao buscar dados do veículo:", data.error);
+          } else {
+            // Preencha a janela modal com os dados do veículo
+            preencherFormularioEdicao(data.veiculo);
+
+            // Abra a janela modal
+            $("#modalEdicao").modal("show");
+            console.log("Dados do veículo carregados com sucesso:", data);
+          }
+        })
+        .catch((error) => {
+          console.error("Erro ao buscar dados do veículo:", error);
+        });
+
+      // Manipulador de evento para salvar a edição
+      $("#btn-salvar-edicao").click(function () {
+        const dadosDoFormulario = $("#meuFormulario2").serialize();
+
+        // Enviar os dados para atualizar o veículo no servidor
+        $.ajax({
+          type: "PUT",
+          url: `/editar-veiculo/${veiculoId}`, // Lembre-se de definir veiculoId corretamente
+          data: dadosDoFormulario,
+          success: function (data) {
+            if (data.success) {
+              console.log("Veículo atualizado com sucesso:", data.message);
+
+              // Feche a janela modal
+              $("#modalEdicao").modal("hide");
+              // Atualize a tabela de veículos ou realize outras ações necessárias aqui
+            } else {
+              console.error("Erro ao atualizar veículo:", data.message);
+            }
+          },
+          error: function (error) {
+            console.error("Erro ao atualizar veículo:", error);
+          },
+        });
+      });
+    });
+
+    // Função para preencher o formulário de edição
+    const preencherFormularioEdicao = (veiculo) => {
+      // Preencha os campos do formulário com os dados do veículo, exceto o campo 'id'
+      $("#empresa").val(veiculo.empresa);
+      $("#modelo").val(veiculo.modelo);
+      $("#ano").val(veiculo.ano);
+      $("#motor").val(veiculo.motor);
+      $("#cor").val(veiculo.cor);
+      $("#categoria").val(veiculo.categoria);
+    };
+  </script>
+</body>
+</html>
