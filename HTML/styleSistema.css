@@ -1,1 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    max-width: 100vw; /* ou qualquer outra largura desejada */
+    margin: 0 auto; /* centraliza o main na página */
+    padding: 20px;
+    margin-bottom: 60px; /* Ajuste este valor conforme necessário para acomodar o footer */
+}
+
+header {
+    background-color: #4583e0;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Adiciona alinhamento vertical ao centro */
+}
+
+header h1 {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container {
+    margin-bottom: 20px; /* Ajuste conforme necessário */
+}
+
+.relatorios {
+    align-self: flex-end; /* Isso alinhará a seção de relatórios à direita */
+    margin-right: 20px; /* Ajuste o espaço entre o input e a borda da tela */
+}
+
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.btn-excluir, .btn-editar, #btn-salvar, #btn-salvar-edicao {
+    background-color: #babdb8;
+    color: #000000;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#btn-relatorio{
+    background-color: #5180c8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-excluir:hover, .btn-editar:hover, #btn-salvar:hover, #btn-salvar-edicao:hover {
+    background-color: #879ea6; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+#btn-relatorio:hover {
+    background-color: #122e50; /* Nova cor de fundo ao passar o mouse */
+    color: #ffffff; /* Nova cor do texto ao passar o mouse */
+}
+
+.form-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form select {
+    padding: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+form select option {
+    font-weight: normal;
+}
+
+form select:hover {
+    background-color: #e0e0e0;
+}
+
+form input[type="text"] {
+    padding: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #2e6ecf;
+    color: #fff;
+}
+
+.veiculo-cell {
+    font-family: "Arial", sans-serif; 
+    font-weight: bold;
+    font-size: 16px;
+}
+
+footer {
+    background-color: #5180c8;
+    color: #ffffff;
+    text-align: center;
+    padding: 0.01em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
