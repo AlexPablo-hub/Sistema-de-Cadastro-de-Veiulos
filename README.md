@@ -3,16 +3,16 @@ Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS, JavaScrip
 
 # Imagens de Demonstração
 <p float="left">
-    <img src="imagens/tela1.PNG" width="300" />
-    <img src="imagens/tela2.PNG" width="300" />
-    <img src="imagens/tela3.PNG" width="300" />
-    <img src="imagens/tela4.PNG" width="300" />
-    <img src="imagens/tela5.PNG" width="300" />
-    <img src="imagens/tela6.PNG" width="300" />
-    <img src="imagens/tela7.PNG" width="300" />
-    <img src="imagens/tela8.PNG" width="300" />
-    <img src="imagens/relatorio1.PNG" width="300" />
-    <img src="imagens/relatorio2.PNG" width="300" />
+    <img src="imagens/tela1.PNG" width="500" />
+    <img src="imagens/tela2.PNG" width="500" />
+    <img src="imagens/tela3.PNG" width="500" />
+    <img src="imagens/tela4.PNG" width="500" />
+    <img src="imagens/tela5.PNG" width="500" />
+    <img src="imagens/tela6.PNG" width="500" />
+    <img src="imagens/tela7.PNG" width="500" />
+    <img src="imagens/tela8.PNG" width="500" />
+    <img src="imagens/relatorio1.PNG" width="400" />
+    <img src="imagens/relatorio2.PNG" width="400" />
 </p>
 
 # Funcionalidades
