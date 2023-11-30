@@ -2,12 +2,12 @@
 const mysql = require('mysql');
 
 // Cria uma conexão com o banco de dados MySQL, especificando os detalhes da conexão, como host, porta, usuário, senha e nome do banco de dados.
-const conexao = mysql.createConnection({
-  host: 'localhost',   // Endereço do servidor MySQL.
-  port: 3306,          // Porta de conexão com o servidor MySQL (padrão é 3306).
-  user: 'root',        // Nome de usuário para autenticação no MySQL.
-  password: '1234',    // Senha do usuário para autenticação no MySQL.
-  database: 'veiculos' // Nome do banco de dados que será usado.
+const connection = mysql.createConnection({
+    host: 'seu-host',        // Endereço do servidor MySQL.
+    port: 3306,              // Porta de conexão com o servidor MySQL (padrão é 3306).
+    user: 'seu-usuario',     // Nome de usuário para autenticação no MySQL.
+    password: 'sua-senha',   // Senha do usuário para autenticação no MySQL.
+    database: 'sistema'      // Nome do banco de dados que será usado.
 });
 
 //A função de callback é acionada quando a conexão é bem-sucedida ou ocorre um erro.
