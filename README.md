@@ -19,7 +19,7 @@ Para instalar as dependências do projeto, utilize o seguinte comando:
    npm install
    ```
 # Banco de Dados
-Este projeto utiliza um banco de dados chamado `veiculos` com duas tabelas principais: `usuarios` e `veiculos` não relacionadas entre si.
+Este projeto utiliza um banco de dados chamado `sistema` com duas tabelas principais: `usuarios` e `veiculos` não relacionadas entre si.
   
 # Configuração do Banco de Dados
 Certifique-se de ter um servidor MySQL em execução e crie um banco de dados para a aplicação, Atualize as configurações de conexão no arquivo `mysql/conexao.js` conforme
@@ -30,7 +30,7 @@ const connection = mysql.createConnection({
     host: 'seu-host',
     user: 'seu-usuario',
     password: 'sua-senha',
-    database: 'seu-banco-de-dados'
+    database: 'sistema'
 });
 ```
 
