@@ -1,5 +1,5 @@
-# Sistema de Cadastro de Veíulos
-Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS, JavaScript (com jQuery) e utiliza o framework Bootstrap para estilização. O sistema oferece funcionalidades básicas de um CRUD (Create, Read, Update, Delete) para gerenciar informações de veículos, permitindo a adição, edição, exclusão e visualização dos dados.
+# Sistema de Cadastro de Veículos
+Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS e JavaScript (com jQuery) e utiliza o framework Bootstrap para estilização, o sistema oferece funcionalidades básicas de um CRUD para gerenciar informações de veículos, permitindo a adição, edição, exclusão e visualização dos dados.
 
 # Imagens de Demonstração
 <p float="left">
