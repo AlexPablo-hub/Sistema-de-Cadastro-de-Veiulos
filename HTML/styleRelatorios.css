@@ -1,1 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
 
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #5180c8;
+    color: #fff;
+    text-align: center;
+    padding: 0.1em;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #5180c8;
+    color: #ffffff;
+    text-align: center;
+    padding: 0.01em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container {
+    margin-bottom: 20px; /* Ajuste conforme necessário */
+}
+
+.voltar {
+    align-self: flex-end; /* Isso alinhará a seção de relatórios à direita */
+    margin-right: 20px; /* Ajuste o espaço entre o input e a borda da tela */
+}
+
+#btn-back {
+    background-color: #5180c8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.voltar, #btnGerarPDF {
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+#btnGerarPDF {
+    background-color: #5180c8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 150px; /* Set a fixed width */
+    box-sizing: border-box;
+}
+
+#btn-back:hover, #btnGerarPDF:hover {
+    background-color: #122e50; /* Nova cor de fundo ao passar o mouse */
+    color: #ffffff; /* Nova cor do texto ao passar o mouse */
+}
+
+.title-container {
+    background-color: #f0f0f0; /* Cor clara */
+    color: #333; /* Cor do texto */
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.title-container h2 {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #4c74c6;
+    color: #fff;
+}
+
+.veiculo-cell {
+    font-family: "Arial", sans-serif; 
+    font-weight: bold;
+    font-size: 16px;
+}
