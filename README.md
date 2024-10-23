@@ -1,5 +1,5 @@
-# Sistema de Cadastro de Veículos
-Este é um sistema de cadastro de veículos desenvolvido em HTML, CSS e JavaScript (com jQuery) e utiliza o framework Bootstrap para estilização, o sistema oferece funcionalidades básicas de um CRUD para gerenciar informações de veículos, permitindo a adição, edição, exclusão e visualização dos dados.
+# Sistema de Cadastro de Veículos Eletricos e Combustão
+Este é um sistema de cadastro de veículos Eletricos e Combustão desenvolvido em HTML, CSS e JavaScript e utiliza o framework Bootstrap para estilização, o sistema oferece funcionalidades básicas de um CRUD para gerenciar informações de veículos, permitindo a adição, edição, exclusão e visualização dos dados.
 
 # Imagens de Demonstração
 <p float="left">
@@ -78,7 +78,11 @@ Certifique-se de ter todas essas dependências instaladas e configuradas correta
 # Contribuições
 Sinta-se à vontade para utilizar, modificar e contribuir para aprimorar este código, sinta-se à vontade para enviar um pull request. Fico feliz com sugestões e melhorias!
 
-# Autor
-Esta API foi desenvolvida por **Alex Pablo**.
+# 👨‍💻 Desenvolvedor
+Este projeto foi desenvolvido por Alex Pablo de Oliveira Moraes.
 
-Curso de Sistemas de Informação - UNEMAT.
+Sou estudante de Sistemas de Informação na UNEMAT, apaixonado por tecnologia, programação e segurança de redes e tecnologias relacionadas ao desenvolvimento backend e segurança da informação.
+
+Você pode me encontrar nas redes sociais ou conferir meus outros projetos no meu perfil GitHub.
+
+Se tiver alguma dúvida ou sugestão sobre o projeto, fique à vontade para entrar em contato!
